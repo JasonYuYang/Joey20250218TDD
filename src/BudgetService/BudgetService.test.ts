@@ -4,7 +4,7 @@ import {Budget, BudgetService, IBudgetRepo} from "./BudgetService.ts";
 describe("BudgetService", () => {
 
     test("endDate is before startDate", () => {
-        const mockBudgetRepo: IBudgetRepo = {
+        const mockBudgetRepo = {
             getAll: vi.fn().mockReturnValue([]),
         };
 

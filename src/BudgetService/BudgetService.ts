@@ -15,9 +15,9 @@ export class BudgetService {
     let totalBalance = 0;
 
     budgets.forEach((budget) => {
-      const budgetMonth = dayjs(budget.yearMonth, "YYYYMM");
-      const monthStart = budgetMonth.startOf("month");
-      const monthEnd = budgetMonth.endOf("month");
+      const budgetYearMonth = dayjs(budget.yearMonth, "YYYYMM");
+      const monthStart = budgetYearMonth.startOf("month");
+      const monthEnd = budgetYearMonth.endOf("month");
       const daysInMonth = monthEnd.diff(monthStart, "day") + 1;
       const dailyRate = budget.amount / daysInMonth;
 
