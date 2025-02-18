@@ -64,4 +64,14 @@ describe("BudgetService", () => {
         const budgetService = new BudgetService(mockBudgetRepo);
         expect(budgetService.query("2024-02-15", "2024-02-20")).toBe(600); // 6 days * 100
     });
+    test("should calculate correctly if not querying partial leap year February", () => {
+        const mockBudgetRepo: IBudgetRepo = {
+            getAll: vi.fn().mockReturnValue([
+                new Budget("202502", 280), // Leap year February has 28 days, daily rate = 10
+            ]),
+        };
+
+        const budgetService = new BudgetService(mockBudgetRepo);
+        expect(budgetService.query("2025-02-15", "2025-02-20")).toBe(60);
+    });
 });
