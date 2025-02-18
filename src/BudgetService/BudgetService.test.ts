@@ -1,7 +1,8 @@
 import {describe, expect, test, vi} from "vitest";
-import {Budget, BudgetService, IBudgetRepo} from "./BudgetService";
+import {Budget, BudgetService, IBudgetRepo} from "./BudgetService.ts";
 
 describe("BudgetService", () => {
+
     test("endDate is before startDate", () => {
         const mockBudgetRepo: IBudgetRepo = {
             getAll: vi.fn().mockReturnValue([]),
